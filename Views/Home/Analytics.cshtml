@@ -19,6 +19,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <title>Analytics</title>
+
     </head>
     <body>
         <div class="container">
@@ -101,23 +102,23 @@
 
         <h3 class="display-4">Chart2</h3>
         <div class="container">
-            <canvas id="SecChart"></canvas>
+            <canvas id="myChart"></canvas>
         </div>
 
         <script>
-            let SecChart = document.getElementById('SecChart').getContext('2d');
+            let myChart = document.getElementById('myChart').getContext('2d');
 
             // Global Options
             Chart.defaults.global.defaultFontFamily = 'Lato';
             Chart.defaults.global.defaultFontSize = 10;
             Chart.defaults.global.defaultFontColor = '#777';
 
-            let massPopChart = new Chart(SecChart, {
+            let massPopChart = new Chart(myChart, {
                 type: 'pie', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
                 data: {
                     labels: ['Male', 'Female'];
                     datasets: [{
-                        label: 'Genders',
+                        label: 'Gender',
                         data: [
                             882, 588
 
@@ -162,14 +163,13 @@
                 }
             });
         </script>
-
+     
     </body>
 </html>
 
-
-
-
-
-
-
 </div>
+
+
+
+
+
