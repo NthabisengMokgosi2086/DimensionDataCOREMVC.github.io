@@ -56,8 +56,11 @@ button.accept-policy {
 html {
   position: relative;
   min-height: 100%;
-}
 
+}
+.h1{
+    font-size:larger;
+}
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;

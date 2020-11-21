@@ -22,7 +22,7 @@ namespace COREMVC.Controllers
             this.roleManager = roleManager;
         }
 
-        [Authorize(Roles = "Human Resource,Manager")]
+        [Authorize(Roles = "Manager")]
         public IActionResult Index()
         {
             var roles = roleManager.Roles.ToList();
