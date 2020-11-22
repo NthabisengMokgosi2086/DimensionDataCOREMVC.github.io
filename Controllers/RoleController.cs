@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace COREMVC.Controllers
 {
-    [Authorize]
+    
     public class RoleController : Controller
     {
         RoleManager<IdentityRole> roleManager;
@@ -22,7 +22,7 @@ namespace COREMVC.Controllers
             this.roleManager = roleManager;
         }
 
-        [Authorize(Roles = "Manager")]
+        
         public IActionResult Index()
         {
             var roles = roleManager.Roles.ToList();

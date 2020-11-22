@@ -15,16 +15,15 @@ namespace COREMVC.Models
         {
         }
 
-        public virtual DbSet<DepartmentTable> DepartmentTable { get; set; }
+        
         public virtual DbSet<EmployeesTable> EmployeesTable { get; set; }
         public virtual DbSet<EmployeesTableExternalData1> EmployeesTableExternalData1 { get; set; }
         public virtual DbSet<HumanResourceTable> HumanResourceTable { get; set; }
         public virtual DbSet<HumanResourceTableExternalData1> HumanResourceTableExternalData1 { get; set; }
-        public virtual DbSet<LoginTable> LoginTable { get; set; }
+        
         public virtual DbSet<ManagerTable> ManagerTable { get; set; }
-        public virtual DbSet<RegistrationTable> RegistrationTable { get; set; }
-        public virtual DbSet<RolesTable> RolesTable { get; set; }
-
+        
+        
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -38,14 +37,7 @@ namespace COREMVC.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<DepartmentTable>(entity =>
-            {
-                entity.HasKey(x=>x.id);
-
-                entity.ToTable("Department_Table$");
-
-                entity.Property(e => e.Department).HasMaxLength(255);
-            });
+            
 
             modelBuilder.Entity<EmployeesTable>(entity =>
             {
@@ -123,16 +115,7 @@ namespace COREMVC.Models
                 entity.Property(e => e.OverTime).HasMaxLength(255);
             });
 
-            modelBuilder.Entity<LoginTable>(entity =>
-            {
-                entity.HasNoKey();
-
-                entity.ToTable("Login_Table$");
-
-                entity.Property(e => e.EmailAdress).HasMaxLength(255);
-
-                entity.Property(e => e.Password).HasMaxLength(255);
-            });
+           
 
             modelBuilder.Entity<ManagerTable>(entity =>
             {
@@ -149,35 +132,8 @@ namespace COREMVC.Models
                 entity.Property(e => e.OverTime).HasMaxLength(255);
             });
 
-            modelBuilder.Entity<RegistrationTable>(entity =>
-            {
-                entity.HasNoKey();
+           
 
-                entity.ToTable("Registration_Table$");
-
-                entity.Property(e => e.Age).HasMaxLength(255);
-
-                entity.Property(e => e.EducatiionField).HasMaxLength(255);
-
-                entity.Property(e => e.EmailAddress).HasMaxLength(255);
-
-                entity.Property(e => e.Gender).HasMaxLength(255);
-
-                entity.Property(e => e.JobRole).HasMaxLength(255);
-
-                entity.Property(e => e.MaritalStatus).HasMaxLength(255);
-
-                entity.Property(e => e.Password).HasMaxLength(255);
-            });
-
-            modelBuilder.Entity<RolesTable>(entity =>
-            {
-                entity.HasKey(x=>x.id);
-
-                entity.ToTable("Roles_Table$");
-
-                entity.Property(e => e.JobRoles).HasMaxLength(255);
-            });
 
             OnModelCreatingPartial(modelBuilder);
         }
